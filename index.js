@@ -25,14 +25,14 @@ var browser = bonjour.find({ type: 'ipp' }, function (printer) {
 })
 
 function hijack (printer) {
+  var state = { ops: 0, docs: [] }
+  render(state)
+
   var opts = {
     port: 3001,
     forwardHost: printer.host,
     forwardPort: printer.port
   }
-
-  var state = { ops: 0, docs: [] }
-  render(state)
 
   spy(opts, function (operation, doc) {
     state.ops++
