@@ -50,7 +50,7 @@ function hijack (printer) {
 }
 
 function toFile (name) {
-  var stream = peek({ maxBuffer: 10 }, function (data, swap) {
+  var stream = peek({ newline: false, maxBuffer: 10 }, function (data, swap) {
     if (isPostScript(data)) name += '.ps'
     else if (isPjl(data)) name += '.ps' // Preview.app on OS X will be able to read PJL documents if opened as .ps
     else if (isPdf(data)) name += '.pdf'
