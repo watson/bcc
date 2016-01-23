@@ -38,8 +38,7 @@ function hijack (printer) {
     state.ops++
     render(state)
     if (operation.operationId !== C.PRINT_JOB) return
-    var name = 'job-' + Date.now()
-    var file = toFile(name)
+    var file = toFile('job-' + Date.now())
     pump(doc, gunzip(), file, function (err) {
       if (err) throw err
       state.docs.push(file.name)
