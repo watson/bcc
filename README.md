@@ -25,7 +25,7 @@ affected - not only printers.
 Aside from disabling Bonjour/Zeroconf on the printer, one possible way
 to secure your network from this sort of attack is by utilizing DNSSEC
 ([RFC 4033](http://tools.ietf.org/html/rfc4033)). How to do this is
-beound the scope of this document.
+beyond the scope of this document.
 
 ## Disclaimer
 
@@ -63,7 +63,7 @@ attacker:
 
 This software is written in Node.js and can be installed using the npm
 package manager. Ensure that you've [downloaded](https://nodejs.org) and
-installed Node.js before continueing.
+installed Node.js before continuing.
 
 Install the `bcc` program globally:
 
