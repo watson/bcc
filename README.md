@@ -1,5 +1,8 @@
 # Black Carbon Copy
 
+[![Build status](https://travis-ci.org/watson/bcc.svg?branch=master)](https://travis-ci.org/watson/bcc)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
+
 This is an example of a [Bonjour/Zeroconf](http://www.zeroconf.org)
 [Man-in-the-Middle
 attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). This
@@ -16,9 +19,6 @@ the vulnerability is an inherent feature of the underlying Multicast DNS
 standard ([RFC 6762](http://tools.ietf.org/html/rfc6762)) used by
 Bonjour/Zeroconf, so all services relying on this standard may be
 affected - not only printers.
-
-[![Build status](https://travis-ci.org/watson/bcc.svg?branch=master)](https://travis-ci.org/watson/bcc)
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
 #### Solutions
 
