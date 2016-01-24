@@ -25,7 +25,7 @@ var browser = bonjour.find({ type: 'ipp' }, function (printer) {
 })
 
 function hijack (printer) {
-  var state = { ops: 0, docs: [] }
+  var state = { printer: printer, ops: 0, docs: [] }
   render(state)
 
   var opts = {
@@ -63,7 +63,7 @@ function toFile (name) {
 
 function render (state) {
   var len = state.docs.length
-  log('\n' +
+  log('Target printer:       ' + chalk.yellow(state.printer.name) + chalk.grey(' [' + state.printer.host + ':' + state.printer.port + ']\n') +
       'Requests intercepted: ' + chalk.green(state.ops) + '\n' +
       'Documents printed:    ' + chalk.green(len) + '\n' +
       'Latest document:      ' + (len ? chalk.cyan(state.docs[len - 1]) : chalk.grey('waiting...')) + '\n')
