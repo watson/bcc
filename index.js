@@ -37,13 +37,15 @@ function hijack (printer) {
   spy(opts, function (operation, doc) {
     state.ops++
     render(state)
-    if (operation.operationId !== C.PRINT_JOB) return
-    var file = toFile('job-' + Date.now())
-    pump(doc, gunzip(), file, function (err) {
-      if (err) throw err
-      state.docs.push(file.name)
-      render(state)
-    })
+
+    if (operation.operationId === C.PRINT_JOB || operation.operationId === C.SEND_DOCUMENT) {
+      var file = toFile('job-' + Date.now())
+      pump(doc, gunzip(), file, function (err) {
+        if (err) throw err
+        state.docs.push(file.name)
+        render(state)
+      })
+    }
   })
 
   bonjour.publish({ type: printer.type, name: printer.name, port: 3001, txt: printer.txt, probe: false })
