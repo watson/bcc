@@ -91,6 +91,15 @@ When you quit the `bcc` program, no clients configured to connect to the
 selected printer will be able to print any more as the proxy is now off
 line and the actual printer have changed its name.
 
+### Debug mode
+
+To see all operation headers sent to the printer, start `bcc` with the
+`--log=<filename>` command line argument:
+
+```
+$ bcc --log=bcc.log
+```
+
 ## License
 
 MIT

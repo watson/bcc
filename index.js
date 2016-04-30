@@ -2,6 +2,7 @@
 'use strict'
 
 var fs = require('fs')
+var util = require('util')
 var pump = require('pump')
 var menu = require('appendable-cli-menu')
 var log = require('single-line-log').stdout
@@ -14,6 +15,9 @@ var isPostScript = require('is-postscript')
 var isPjl = require('is-pjl')
 var isPdf = require('is-pdf')
 var C = require('ipp-encoder/constants')
+
+var logFile = (process.argv[2] || '').split('=')
+logFile = logFile[0] === '--log' ? logFile[1] : null
 
 var printers = menu('Select a printer', function (printer) {
   browser.stop()
@@ -35,6 +39,12 @@ function hijack (printer) {
   }
 
   spy(opts, function (operation, doc) {
+    if (logFile) {
+      fs.appendFileSync(logFile,
+        '-------------------------------------------\n' +
+        util.inspect(operation, { depth: null }) + '\n')
+    }
+
     state.ops++
     render(state)
 
