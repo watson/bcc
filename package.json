@@ -1,6 +1,6 @@
 {
   "name": "bcc",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "An IPP tool to Man-in-the-Middle all traffic to a local printer",
   "bin": "index.js",
   "dependencies": {
@@ -50,7 +50,7 @@
   "homepage": "https://github.com/watson/bcc#readme",
   "preferGlobal": true,
   "coordinates": [
-    52.49306199999999,
-    13.4230646
+    52.49312219999999,
+    13.4230795
   ]
 }
